@@ -1,0 +1,29 @@
+NOBRAINS enquiry form: setup (about 10 minutes)
+
+Do all of this while signed in to nobrainscollective@gmail.com, so the emails go out from that address.
+
+1. Go to sheets.google.com and create a blank spreadsheet. Name it "NOBRAINS enquiries".
+2. In that sheet: Extensions > Apps Script.
+3. Delete what is in the editor, paste in everything from Code.gs, and click the save icon.
+4. Click Deploy > New deployment. Click the gear next to "Select type" and choose Web app.
+     Execute as: Me (nobrainscollective@gmail.com)
+     Who has access: Anyone
+   Click Deploy.
+5. Google asks for permission. Click "Authorize access", pick the account, then "Advanced" >
+   "Go to (project name) (unsafe)" > Allow. (It says unsafe only because it is your own unpublished script.)
+6. Copy the "Web app" address (it ends in /exec) and send it to whoever maintains the website.
+   That address is pasted into FORM_ENDPOINT in assets/js/main.js.
+7. To test: open the address in a browser. You should see {"ok":true}.
+
+Every enquiry then:
+  - becomes a new row in the "Enquiries" tab of the sheet,
+  - arrives in the inbox as "New enquiry from <name>" (press Reply to answer the visitor),
+  - sends the visitor an automatic "We got your message" email from nobrainscollective@gmail.com.
+
+To get an Excel file: in the sheet, File > Download > Microsoft Excel (.xlsx).
+
+If the script is ever edited: Deploy > Manage deployments > pencil icon > Version: New version > Deploy.
+(The web address stays the same.)
+
+Limits: a free Gmail account can send about 100 emails a day through scripts, and each enquiry uses 2.
+Automatic emails sent from a Gmail address occasionally land in the visitor's spam folder.

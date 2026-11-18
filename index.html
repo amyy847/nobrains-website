@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NOBRAINS — Good ideas. No brakes.</title>
+<meta name="description" content="NOBRAINS is a creative marketing consultancy. Branding, social media and content, marketing strategy and digital design, built around the brief.">
+<meta name="theme-color" content="#fbf8f2">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<script>(function(d){try{var s=sessionStorage,n=s.getItem("nbNav"),first=!s.getItem("nbSeen");s.removeItem("nbNav");s.setItem("nbSeen","1");if(first)d.dataset.first="1";if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var home=/(^|\/)(index\.html)?$/.test(location.pathname);if(n||(first&&!home)){d.classList.add("curtain-on");if(n)d.classList.add("curtain-nav");setTimeout(function(){d.classList.remove("curtain-on","curtain-nav")},7000)}}catch(e){}})(document.documentElement)</script>
+<script>(function(d){d.classList.add('js');try{if(d.dataset.first&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.dataset.intro='stamp'}catch(e){}})(document.documentElement)</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="page-curtain" aria-hidden="true"><img src="assets/logo-cream-mark.png" alt="" width="692" height="330"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+    <!-- wobbly edges, like rubber on paper -->
+    <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="2" seed="3" result="wob"/>
+    <feDisplacementMap in="SourceGraphic" in2="wob" scale="5" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+    <!-- fine paper grain + big soft patches where the stamp pressed lighter -->
+    <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="11"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0" result="grain"/>
+    <feTurbulence type="fractalNoise" baseFrequency=".011 .02" numOctaves="2" seed="29"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0" result="patch"/>
+    <feComposite in="grain" in2="patch" operator="arithmetic" k1="0" k2="12" k3="8" k4="-8.2" result="mask"/>
+    <feComposite in="rough" in2="mask" operator="in"/>
+  </filter>
+</svg>
+<!-- Intro: the logo is stamped onto the page, every time the home page loads -->
+<div class="intro-layer" aria-hidden="true">
+  <img class="il-stamp" src="assets/logo-red.png" alt="" width="692" height="330">
+</div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="NOBRAINS home"><img src="assets/logo-red.png" alt="NOBRAINS" width="92" height="44"></a>
+    <nav class="nav" aria-label="Main">
+      <!-- portfolio hidden for now: <a href="work.html">Portfolio</a> -->
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a class="btn" href="contact.html">Let’s talk</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu"><span class="lbl">Menu</span><span class="bars" aria-hidden="true"></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile">
+    <a class="big" href="index.html" aria-current="page">Home</a>
+    <!-- portfolio hidden for now: <a class="big" href="work.html">Portfolio</a> -->
+    <a class="big" href="services.html">Services</a>
+    <a class="big" href="about.html">About</a>
+    <a class="big" href="contact.html">Contact</a>
+  </nav>
+  <div class="mm-foot"><a href="mailto:nobrainscollective@gmail.com">nobrainscollective@gmail.com</a><span>No brakes.</span></div>
+</div>
+
+<main id="main" class="page-home">
+
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="t-hero" aria-label="Good ideas. No brakes.">
+        <span class="ln">Good ideas.</span>
+        <span class="ln"><em>No brakes.</em></span>
+      </h1>
+      <div class="hero__row">
+        <p class="t-body-l">We turn smart thinking into creative work that makes brands stand out.</p>
+        <div class="hero__ctas">
+          <a class="link link--arrow" href="contact.html">Start a project<svg class="arr" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 14L14 2M5 2H14V11" pathLength="1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-miterlimit="10"/></svg></a>
+          <!-- portfolio hidden for now: <a class="link" href="work.html">See our work</a> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands -->
+  <section class="brands" aria-labelledby="brands-title">
+    <div class="wrap"><h2 class="eyebrow" id="brands-title">Some brands we’ve partnered with</h2></div>
+    <div class="wrap">
+        <ul class="logos">
+          <li><img src="assets/clients/vanessa-victor.png" alt="Vanessa Victor Design House" width="115" height="60" loading="lazy"></li>
+          <li><img src="assets/clients/zoak.png" alt="ZOAK" width="165" height="42" loading="lazy"></li>
+          <li><img src="assets/clients/mower.png" alt="MOWER" width="72" height="64" loading="lazy"></li>
+          <li><img src="assets/clients/pinka.svg" alt="Pinka" width="156" height="30" loading="lazy"></li>
+          <li><img src="assets/clients/halak-w-kerdan.png" alt="Halak w Kerdan" width="136" height="69" loading="lazy"></li>
+          <li><img src="assets/clients/rdk.png" alt="RDK Developments" width="124" height="56" loading="lazy"></li>
+          <li><img src="assets/clients/kease.png" alt="Kease" width="188" height="37" loading="lazy"></li>
+          <li><img src="assets/clients/sole.png" alt="SOLE Fine Works" width="64" height="64" loading="lazy"></li>
+          <li><img src="assets/clients/autovia.png" alt="Autovia by RDK" width="190" height="30" loading="lazy"></li>
+          <li class="is-icon"><img src="assets/clients/packman.png" alt="Packman" width="60" height="60" loading="lazy"></li>
+          <li><img src="assets/clients/manabit.png" alt="Manabit" width="100" height="60" loading="lazy"></li>
+          <li><img src="assets/clients/be-organic.png" alt="Be Organic" width="113" height="60" loading="lazy"></li>
+        </ul>
+    </div>
+  </section>
+
+  <!-- Selected work: hidden for now. To bring it back, delete this line and the "end hidden" line below.
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="t-l">Selected work</h2>
+        <a class="link" href="work.html">View all work</a>
+      </div>
+      <div class="grid-work grid-work--lead" data-work-grid data-limit="4"></div>
+    </div>
+  </section>
+  end hidden -->
+
+  <!-- Partnership statement -->
+  <section class="section">
+    <div class="wrap statement">
+      <p class="meta-bar"><span>How we work</span><span>About us</span></p>
+      <h2 class="t-xl statement__big">Built around the brief.</h2>
+      <p class="t-lead statement__sub">When we work together, we become partners.</p>
+      <a class="link link--arrow" href="about.html">More about us<svg class="arr" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 14L14 2M5 2H14V11" pathLength="1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-miterlimit="10"/></svg></a>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="section">
+    <div class="wrap">
+      <p class="meta-bar"><span>Who we work with</span><span>Industries</span></p>
+      <div class="industries">
+      <h2 class="t-l">Industries we serve</h2>
+      <ul class="rows">
+        <li><b>Real estate &amp; development</b><span>Launches, master plans and the identities that sell them.</span></li>
+        <li><b>Fashion &amp; design</b><span>Houses and studios that live on taste and a clear point of view.</span></li>
+        <li><b>Food &amp; hospitality</b><span>Names, looks and feeds people can almost taste.</span></li>
+        <li><b>Retail &amp; lifestyle</b><span>Products and spaces that need to stand out on a crowded shelf.</span></li>
+        <li><b>Services &amp; startups</b><span>New businesses that need to look established from day one.</span></li>
+      </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section">
+    <div class="wrap">
+      <p class="meta-bar"><span>What we do</span><span>Four departments</span></p>
+      <div class="sec-head">
+        <h2 class="t-l">Services</h2>
+        <a class="link link--arrow" href="services.html">All services<svg class="arr" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 14L14 2M5 2H14V11" pathLength="1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-miterlimit="10"/></svg></a>
+      </div>
+      <div class="svc-grid">
+        <a class="svc" href="services.html#stage-1"><span class="num">01</span><h3>Branding &amp; brand development</h3><p>We build brands with identity, direction and purpose.</p><ul><li>Brand strategy &amp; positioning</li><li>Brand naming &amp; storytelling</li><li>Logo design &amp; visual identity</li><li>Brand guidelines &amp; brand books</li></ul></a>
+        <a class="svc" href="services.html#stage-2"><span class="num">02</span><h3>Social media &amp; content production</h3><p>We make brands impossible to scroll past.</p><ul><li>Social media strategy &amp; management</li><li>Art direction &amp; campaign concepts</li><li>Photography &amp; videography</li><li>Community management &amp; reporting</li></ul></a>
+        <a class="svc" href="services.html#stage-3"><span class="num">03</span><h3>Marketing strategy &amp; campaigns</h3><p>Creative ideas backed by business thinking.</p><ul><li>Marketing strategy &amp; consultation</li><li>Market research &amp; competitor analysis</li><li>Go-to-market &amp; launch strategies</li><li>Integrated campaign development</li></ul></a>
+        <a class="svc" href="services.html#stage-4"><span class="num">04</span><h3>Digital &amp; product design</h3><p>We turn ideas into functional, thoughtful digital experiences.</p><ul><li>Website design &amp; development</li><li>UX/UI design</li><li>Digital product design</li><li>E-commerce experience design</li></ul></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countries -->
+  <section class="section countries">
+    <div class="wrap">
+      <p class="meta-bar"><span>Where we work</span><span>Egypt, Kuwait, Saudi Arabia, UAE</span></p>
+      <p class="countries__lead">We partner with brands across the region.</p>
+      <h2 class="countries__names">Cairo. Kuwait. KSA. UAE.</h2>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="eyebrow">Got a good one?</span>
+    <a class="soon" href="contact.html" aria-label="See you soon. Get in touch"><span class="soon__text">See you soon</span></a>
+    <a class="soon__cta" href="contact.html">Start a conversation<svg class="arr" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 14L14 2M5 2H14V11" pathLength="1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-miterlimit="10"/></svg></a>
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logo-cream-mark.png" alt="NOBRAINS" width="130" height="62" loading="lazy">
+        <p class="footer-tag">Good ideas. No brakes.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul><li><a href="index.html">Home</a></li><!-- portfolio hidden for now: <li><a href="work.html">Portfolio</a></li> --><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Say hello</h4>
+        <ul><li><a href="mailto:nobrainscollective@gmail.com">nobrainscollective@gmail.com</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-base"><span>© <span data-year>2026</span> NOBRAINS LTD. All rights reserved.</span><span>A creative marketing consultancy</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/projects.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/curtain.js"></script>
+<script src="assets/js/intro.js"></script>
+</body>
+</html>

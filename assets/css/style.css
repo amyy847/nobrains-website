@@ -82,11 +82,13 @@ ul, ol { list-style: none; }
 .btn {
   --bg: var(--red); --fg: var(--cream);
   display: inline-flex; align-items: center; gap: 12px;
-  padding: 17px 28px;
+  padding: 19px 38px;
   background: var(--bg); color: var(--fg);
-  border: 0; border-radius: 999px; cursor: pointer;
+  border: 0; border-radius: 0; cursor: pointer;
   font: 500 15px/1 var(--f-body); letter-spacing: .01em;
+  -webkit-mask: url("../logo-o-solid.png") center / 100% 100% no-repeat; mask: url("../logo-o-solid.png") center / 100% 100% no-repeat; /* the logo's O */
 }
+.btn:focus-visible { --bg: var(--ink); text-decoration: underline; text-underline-offset: 4px; outline: 0; } /* an outline would be cut off by the shape */
 .btn:hover { --bg: var(--ink); }
 .btn--light { --bg: var(--cream); --fg: var(--red); }
 .btn--light:hover { --bg: var(--paper); --fg: var(--ink); }
@@ -116,7 +118,7 @@ ul, ol { list-style: none; }
 .nav a:not(.btn) { position: relative; font-weight: 500; font-size: 15px; color: var(--ink); }
 .nav a:not(.btn):hover, .nav a:not(.btn)[aria-current="page"] { color: var(--red); }
 .nav .btn[aria-current="page"] { --bg: var(--ink); }
-.nav .btn { padding: 13px 22px; font-size: 14px; }
+.nav .btn { padding: 15px 30px; font-size: 14px; }
 
 .menu-btn { display: none; align-items: center; gap: 10px; background: none; border: 0; cursor: pointer; font-weight: 500; font-size: 15px; color: var(--ink); padding: 10px 0; }
 .menu-btn span.bars { position: relative; width: 26px; height: 10px; }
@@ -205,7 +207,7 @@ h1 em, h2 em { font-style: normal; color: var(--red); }
 .industries { display: grid; grid-template-columns: 1fr 2.4fr; gap: clamp(32px, 6vw, 96px); }
 .industries h2 { font-size: clamp(36px, 4.6vw, 76px); line-height: 1; }
 .rows { border-top: 0; }
-.rows li { display: grid; grid-template-columns: 1fr 1.3fr; gap: 24px; align-items: baseline; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.rows li { padding: 24px 0; border-bottom: 1px solid var(--line); }
 .rows b { font: 600 clamp(20px, 2vw, 30px)/1.15 var(--f-display); letter-spacing: -.02em; }
 .rows span { color: var(--muted); font-size: 17px; }
 
@@ -354,7 +356,9 @@ h1 em, h2 em { font-style: normal; color: var(--red); }
 .stage__side h2 { font-size: clamp(36px, 4.2vw, 64px); line-height: 1; margin-bottom: 22px; }
 .stage__side p { max-width: 36ch; }
 .deliverables { border-top: 0; }
-.deliverables li { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid var(--line); font-size: clamp(18px, 1.5vw, 22px); }
+.deliverables li { display: flex; align-items: center; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--line); font-size: clamp(18px, 1.5vw, 22px); }
+/* the logo's O is the bullet */
+.deliverables li::before { content: ""; flex: none; width: 2em; height: .86em; background: url("../logo-o.png") center / contain no-repeat; }
 .deliverables li span { font-size: 13px; color: var(--muted); letter-spacing: .06em; }
 .deliverables-group { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin: 40px 0 12px; }
 .deliverables-group:first-child { margin-top: 0; }
@@ -492,13 +496,16 @@ fieldset legend { margin-bottom: 14px; }
 .page-hero__row .meta-row { grid-column: 1 / -1; }
 @media (min-width: 1100px) {
   .checks { flex-wrap: nowrap; }
-  .checks span { white-space: nowrap; padding: 10px 14px; font-size: 14px; }
+  .checks span { white-space: nowrap; padding: 11px 22px; font-size: 14px; }
 }
 .checks label { position: relative; cursor: pointer; }
 .checks input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
-.checks span { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--line); font-size: 15px; }
+.checks span { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; font-size: 15px; }
+.checks span::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(27, 17, 17, .34);
+  -webkit-mask: url("../logo-o-line.png") center / 100% 100% no-repeat; mask: url("../logo-o-line.png") center / 100% 100% no-repeat; }
 .checks span i { font-style: normal; font-weight: 500; color: var(--red); }
-.checks input:checked + span { background: var(--red); border-color: var(--red); color: var(--cream); }
+.checks input:checked + span { color: var(--cream); }
+.checks input:checked + span::before { background: var(--red); -webkit-mask-image: url("../logo-o-solid.png"); mask-image: url("../logo-o-solid.png"); }
 .checks input:checked + span i { color: var(--blush); }
 .checks input:focus-visible + span { outline: 2px solid var(--red-2); outline-offset: 3px; }
 .form-foot { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
@@ -682,3 +689,7 @@ html.curtain-leaving .page-curtain { animation: curtain-in .55s var(--ease-io) b
 /* home page: every section sits the same distance from the next (same as the About page) */
 .page-home .section, .page-home .brands { padding-block: clamp(48px, 6vw, 96px); }
 .page-home .hero { padding-bottom: clamp(48px, 6vw, 96px); }
+
+.about__lead { max-width: 26ch; margin-top: clamp(28px, 3.4vw, 48px); }
+.about__def { max-width: 44ch; margin-top: clamp(24px, 3vw, 40px); }
+.approach__lead { margin-top: clamp(32px, 4vw, 56px); }

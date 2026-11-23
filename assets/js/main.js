@@ -52,6 +52,17 @@ const CONTACT_EMAIL = "nobrainscollective@gmail.com";
     if (target) target.scrollIntoView({ behavior: "instant", block: "start" });
   }, 60));
 
+  /* ---------- Beats marked data-reveal switch to their final look once, when they scroll into view ---------- */
+  const reveals = $$("[data-reveal]");
+  if (reveals.length) {
+    if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      reveals.forEach((el) => el.classList.add("is-in"));
+    } else {
+      const seen = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-in"); seen.unobserve(e.target); } }), { threshold: 0.3 });
+      reveals.forEach((el) => seen.observe(el));
+    }
+  }
+
   /* ---------- Anything marked data-drift leans a few pixels toward the pointer ---------- */
   const drift = $("[data-drift]");
   if (drift && !matchMedia("(prefers-reduced-motion: reduce)").matches && matchMedia("(hover: hover)").matches) {

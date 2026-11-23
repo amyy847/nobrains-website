@@ -52,6 +52,17 @@ const CONTACT_EMAIL = "nobrainscollective@gmail.com";
     if (target) target.scrollIntoView({ behavior: "instant", block: "start" });
   }, 60));
 
+  /* ---------- Anything marked data-drift leans a few pixels toward the pointer ---------- */
+  const drift = $("[data-drift]");
+  if (drift && !matchMedia("(prefers-reduced-motion: reduce)").matches && matchMedia("(hover: hover)").matches) {
+    addEventListener("pointermove", (e) => {
+      const r = drift.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+      const len = Math.hypot(dx, dy) || 1, pull = Math.min(11, len / 40); /* at most 11px */
+      drift.style.transform = `translate(${((dx / len) * pull).toFixed(1)}px, ${((dy / len) * pull).toFixed(1)}px)`;
+    }, { passive: true });
+  }
+
   /* ---------- Links to a section on the same page glide there ------------- */
   if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
     let glide = null; /* the running animation frame, if any */

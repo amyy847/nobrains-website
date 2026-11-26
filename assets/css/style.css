@@ -732,7 +732,7 @@ h1, h2, h3 { text-wrap: balance; }
   .page-about .beat { min-height: 76vh; display: flex; align-items: center; }
 }
 @media (max-width: 1080px) { .process { grid-template-columns: 1fr 1fr; row-gap: 40px; } }
-@media (max-width: 860px) { .about-hero__p { grid-column: 1; } }
+@media (max-width: 860px) { .about-hero__grid { grid-template-columns: 1fr; } .about-hero__p { grid-column: 1 / -1; max-width: none; } } /* on phones the paragraph runs the full width */
 @media (max-width: 560px) { .process { grid-template-columns: 1fr; } }
 /* reduced motion: everything shows in its final state straight away */
 @media (prefers-reduced-motion: reduce) {
